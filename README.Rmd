@@ -24,23 +24,23 @@ runSimple()
 
 The app will ask you to select a headless *.TSV (tab separated values) file with the information of the samples/experiments. The first two fields/columns are mandatory:
 
--  unique name to identify each sample/experiment.
+1. unique name to identify each sample/experiment.
 
--  path to the compressed and indexed file of contacts. Both local and remote (via URI) data retrieval are supported. More about the required format in the file format section.
+2. path to the compressed and indexed file of contacts. Both local and remote (via URI) data retrieval are supported. More about the required format in the file format section.
 
 File format
 --------------
 
 hicvidere requires the contact matrix information in a bed-like format. These are the mandatory fields/columns:
 
--  chromosome
+1. chromosome
 
--  genomic location of the *row* bin
+2. genomic location of the *row* bin
 
--  genomic location of the *column* bin
+3. genomic location of the *column* bin
 
--  number of contacts between *row* and *column* bins
+4. number of contacts between *row* and *column* bins
 
-hicvidere only needs the upper triangular contact matrix (so *row* position >= *col* position).
+hicvidere only needs the upper triangular contact matrix (so *row* position >= *column* position).
 
 This bed-like file should be sorted, compressed and indexed. See tabix [documentation](https://cran.r-project.org/web/packages/seqminer/index.html).
