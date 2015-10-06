@@ -1,0 +1,14 @@
+Package: hicvidere
+Title: Tools to visualize HiC data
+Version: 0.0.0.9000
+Authors@R: person("Enrique", "Vidal", email = "enrique.vidal@crg.eu", role = c("aut", "cre"))
+Description: Tools to visualize HiC data.
+Depends: R (>= 3.2.2)
+License: GPL-2
+LazyData: true
+Imports:
+    dplyr,
+    magrittr,
+    RColorBrewer,
+    seqminer,
+    shiny
