@@ -1,30 +1,32 @@
----
-title: "hicvidere"
-author: "qenvio"
-date: "October 6, 2015"
-output: html_document
----
+hicvidere
+=========
+
+Introduction
+------------
 
 hicvidere is a minimal package to ease in the visualization of HiC data (contact maps). It is based on fast data retrieval provided by [tabix](http://www.htslib.org/doc/tabix.html) via [seqminer](https://cran.r-project.org/web/packages/seqminer/index.html).
 
+Quick start
+-----------
+
 You can install the package from github
 
-    ``` r
-    devtools::install_github("qenvio/hicvidere")
-    ```
+``` r
+devtools::install_github("qenvio/hicvidere")
+```
 
 To start a interactive shiny app that wraps the main functionalities of the package just code
 
-    ``` r
-    library("hicvidere"")
-    runSimple()
-    ```
+``` r
+library("hicvidere"")
+runSimple()
+```
 
 The app will ask you to select a headless *.TSV (tab separated values) file with the information of the samples/experiments. The first two fields/columns are mandatory:
 
 -  unique name to identify each sample/experiment.
 
--  path to the compressed and indexed file of contacts. Both local and remote (via URI) data retrieval are supported. More about the required format in the file format [section](File format).
+-  path to the compressed and indexed file of contacts. Both local and remote (via URI) data retrieval are supported. More about the required format in the file format section.
 
 File format
 --------------
@@ -37,7 +39,7 @@ hicvidere requires the contact matrix information in a bed-like format. These ar
 
 -  genomic location of the *column* bin
 
--  number of contacts between *row* and 'column' bins
+-  number of contacts between *row* and *column* bins
 
 hicvidere only needs the upper triangular contact matrix (so *row* position >= *col* position).
 
