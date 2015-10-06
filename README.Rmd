@@ -1,9 +1,6 @@
 hicvidere
 =========
 
-Introduction
-------------
-
 hicvidere is a minimal package to ease in the visualization of HiC data (contact maps). It is based on fast data retrieval provided by [tabix](http://www.htslib.org/doc/tabix.html) via [seqminer](https://cran.r-project.org/web/packages/seqminer/index.html).
 
 Quick start
@@ -18,7 +15,7 @@ devtools::install_github("qenvio/hicvidere")
 To start a interactive shiny app that wraps the main functionalities of the package just code
 
 ``` r
-library("hicvidere"")
+library("hicvidere")
 runSimple()
 ```
 
