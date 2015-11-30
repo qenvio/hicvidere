@@ -12,7 +12,7 @@ plot_contacts(contacts, rotate = T, transformation = log10,
 
 \item{rotate}{Do you want matrix to be rotated so the diagonal is from top-left to bottom-right? Dafaults to TRUE}
 
-\item{transformation}{Transformation of hte data to ease the visualization. Dafaults to log10}
+\item{transformation}{Transformation of the data to ease the visualization. Dafaults to log10}
 
 \item{col.palette}{Palette of colors used in the representation}
 }
