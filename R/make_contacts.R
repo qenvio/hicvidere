@@ -56,7 +56,7 @@ make_contacts <- function(infile, region, window){
 
   }
 
-  pos <- seq(start, end, window) %>% format
+  pos <- seq(start, end, window) %>% format(sci = F)
 
   # tabulate into matrix
 
