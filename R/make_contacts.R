@@ -20,9 +20,9 @@ make_contacts <- function(infile, region, window){
 
   # call bash script
 
-  system.file("src", "make_contacts.sh", package = "hicvidere")
+  script_file <- system.file("src", "make_contacts.sh", package = "hicvidere")
 
-  system(paste("/home/evidal/playground/make_contacts.sh",
+  system(paste(script_file,
                infile,
                region,
                window,
@@ -31,7 +31,7 @@ make_contacts <- function(infile, region, window){
 
   # get contacts & clear tmp file
 
-  out <- read.delim(tmp, head = F)
+  out <- read.delim(tmp, head = F, stringsAsFactors = F)
 
   unlink(tmp)
 
@@ -56,7 +56,8 @@ make_contacts <- function(infile, region, window){
 
   }
 
-  pos <- seq(start, end, window) %>% format(sci = F)
+  pos <- seq(floor(start / window + .5) * window, floor(end / window + .5) * window, window) %>%
+      format(sci = F)
 
   # tabulate into matrix
 
