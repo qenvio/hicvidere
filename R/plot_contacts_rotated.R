@@ -24,7 +24,13 @@ plot_contacts_rotated <- function(mat, m1 = NULL, m2 = NULL, transformation = fu
   # transform scores into colors
 
   x <- unclass(mat) %>% transformation
-  x[] <- viridis(100)[cut(c(x), seq(min(x, na.rm = T), max(x, na.rm = T), len = 101), include = T)]
+  if(max(x) == min(x)){
+      x[] <- viridis(100)[50]
+  }else{
+      x[] <- viridis(100)[cut(c(x), seq(min(x, na.rm = T),
+                                        max(x, na.rm = T),
+                                        len = 101), include = T)]
+  }
 
   # get limits of genomic region
 
