@@ -6,7 +6,7 @@
 \usage{
 plot_contacts_rotated(mat, m1 = NULL, m2 = NULL,
   transformation = function(x) log10(x + min(x[x > 0], na.rm = TRUE)),
-  color = viridis(100))
+  color = viridis(100), sym = FALSE)
 }
 \arguments{
 \item{mat}{Input contact matrix. Usually the output of \code{\link{get_contacts}} or \code{\link{make_contacts}}}
@@ -18,6 +18,8 @@ plot_contacts_rotated(mat, m1 = NULL, m2 = NULL,
 \item{transformation}{Transformation of the data to ease the visualization. Dafaults to log10}
 
 \item{color}{A vector of colors (palette). Dafaults to viridis(100)}
+
+\item{sym}{Should the color code be symmetric around 0?. Dafaults to FALSE}
 }
 \value{
 A nice plot

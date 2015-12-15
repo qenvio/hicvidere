@@ -9,27 +9,41 @@
 #' @param m2 Label of the upper panel
 #' @param transformation Transformation of the data to ease the visualization. Dafaults to log10
 #' @param color A vector of colors (palette). Dafaults to viridis(100)
+#' @param sym Should the color code be symmetric around 0?. Dafaults to FALSE
 #' @return A nice plot
 #' @seealso \code{\link{read_tabix}} and \code{\link{get_contacts}} for data retrieval
 #' @export
 #' @examples
 #' plot(0)
 
-plot_contacts_rotated <- function(mat, m1 = NULL, m2 = NULL, transformation = function(x) log10(x + min(x[x>0], na.rm = TRUE)), color = viridis(100)){
+plot_contacts_rotated <- function(mat, m1 = NULL, m2 = NULL, transformation = function(x) log10(x + min(x[x>0], na.rm = TRUE)), color = viridis(100), sym = FALSE){
 
   # prepare axis info and parameters
 
   guides <- pretty(x = rownames(mat) %>% as.numeric)
   par(mar = c(4, 0, 0, 0), pty = "s")
 
-  # transform scores into colors
+  # prepare range of colors
 
   x <- unclass(mat) %>% transformation
+  if(sym){
+
+      upper <- max(abs(x), na.rm = T)
+      lower <- - upper
+
+  }else{
+
+      lower <- min(x, na.rm = T)
+      upper <- max(x, na.rm = T)
+
+  }
+    
+  # transform scores into colors
+
   if(max(x, na.rm = T) == min(x, na.rm = T)){
       x[] <- color[round(length(color) / 2)]
   }else{
-      x[] <- color[cut(c(x), seq(min(x, na.rm = T),
-                                 max(x, na.rm = T),
+      x[] <- color[cut(c(x), seq(lower, upper,
                                  len = length(color) + 1), include = T)]
   }
     
