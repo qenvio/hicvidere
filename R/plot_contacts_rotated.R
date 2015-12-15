@@ -26,13 +26,13 @@ plot_contacts_rotated <- function(mat, m1 = NULL, m2 = NULL, transformation = fu
 
   x <- unclass(mat) %>% transformation
   if(max(x, na.rm = T) == min(x, na.rm = T)){
-      x[] <- color[50]
+      x[] <- color[round(length(color) / 2)]
   }else{
       x[] <- color[cut(c(x), seq(min(x, na.rm = T),
-                                        max(x, na.rm = T),
-                                        len = length(color) + 1), include = T)]
+                                 max(x, na.rm = T),
+                                 len = length(color) + 1), include = T)]
   }
-
+    
   # get limits of genomic region
 
   range_pos <- as.numeric(rownames(x)) %>% range
