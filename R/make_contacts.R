@@ -62,8 +62,8 @@ make_contacts <- function(infile, region, window){
   # tabulate into matrix
 
   mutate(out,
-         V2 = factor(V2, levels = pos),
-         V3 = factor(V3, levels = pos)) %>%
+         V2 = format(V2, sci = F) %>% factor(levels = pos),
+         V3 = format(V3, sci = F) %>% factor(levels = pos)) %>%
     xtabs(V4 ~ V2 + V3, .)
 
 }
